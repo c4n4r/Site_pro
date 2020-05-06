@@ -1,0 +1,23 @@
+{% extends 'pages/admin/admin_base.html.twig' %}
+{% block body %}
+    <div class="p-12 text-dark">
+        <h4>Ensemble des Catégories</h4>
+        <div class="px-4 my-12">
+            {{ render(controller(
+                'App\\Controller\\Admin\\Parts\\CategoryController::categoriesTablesAction'))
+            }}
+        </div>
+        <h4>Ensemble des Technos</h4>
+        <div class="px-4 my-12">
+            {{ render(controller('App\\Controller\\Admin\\Parts\\TechnoController::technosTablesAction')) }}
+        </div>
+        <h4>Ensemble des Skills</h4>
+        <div class="px-4 my-12">
+            {{ render(controller('App\\Controller\\Admin\\Parts\\SkillController::skillsTablesAction')) }}
+        </div>
+        <h4>Ensemble des Projects</h4>
+        <div class="px-4 my-12">
+            {{ render(controller('App\\Controller\\Admin\\Parts\\ProjectController::projectsTablesAction')) }}
+        </div>
+    </div>
+{% endblock %}

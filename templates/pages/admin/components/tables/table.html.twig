@@ -1,0 +1,27 @@
+{% extends 'pages/admin/components/tables/table_base.html.twig' %}
+{% block headers %}
+    <tr class="flex bg-light text-dark font-medium text-left justify-around rounded-top">
+        {% for header in headers %}
+            <td class="w-full pl-5 border-b border-golden rounded-top">{{ header }}</td>
+        {% endfor %}
+        {% if update %}
+            <td class="w-full border-b border-golden rounded-top">Action</td>
+        {% endif %}
+    </tr>
+{% endblock %}
+{% block rows %}
+    {% for key, col in rows %}
+        <tr class="flex bg-light text-dark text-left justify-around">
+            {% for headerKey, header in headers %}
+                <td class="w-full pl-5">
+                    {{ attribute(col, header)  }}
+                </td>
+            {% endfor %}
+            {% if update %}
+                <td class="w-full">
+                    <a class="text-sm text-golden hover:font-extrabold" href="{{ path(update, {'id' : col.id}) }}"> Update </a>
+                </td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+{% endblock %}

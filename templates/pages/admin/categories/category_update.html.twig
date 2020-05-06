@@ -1,0 +1,17 @@
+{% extends 'pages/admin/admin_base.html.twig' %}
+
+{% block body %}
+    <h2 class="text-dark mb-5">nouvelle catégorie</h2>
+    {{ form_start(categoryForm) }}
+        <div class="flex w-1/5 flex-col">
+            <div class="flex justify-between">
+                {{ form_label(categoryForm.name, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
+                {{ form_widget(categoryForm.name , { 'attr': { 'class' : 'ml-3 text-dark bg-light px-4 rounded shadow'}}) }}
+            </div>
+            <div class="flex mt-6">
+                {{ form_widget(categoryForm.save, {'attr': {'class' : 'button button-dark' }}) }}
+            </div>
+        </div>
+
+    {{ form_end(categoryForm) }}
+{% endblock %}

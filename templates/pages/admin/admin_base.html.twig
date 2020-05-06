@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+    <title>Hadrien Delphin - Admin</title>
+</head>
+<body class="flex h-screen">
+<div class="w-1/6 border-r-2">
+    {% include 'pages/admin/components/side_nav.html.twig' %}
+</div>
+<div class="w-4/5">
+
+    <div class="p-20">
+        {% for message in app.flashes('info')  %}
+            <div class="w-full">
+                <span class="flash-info"> {{ message }} </span>
+            </div>
+        {% endfor %}
+        {% block  body%}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

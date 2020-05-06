@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block body%}
+    <div class="flex items-center justify-center flex-col w-full">
+        <div class="border-2 border-golden h-48 w-2/5 rounded-lg flex flex-row">
+            <div class="w-5/6  h-full flex px-10 items-center text-darken">
+                <div class="flex flex-col">
+                    <h2><span>Hadrien Delphin</span></h2>
+                    <h3><span class="text-golden">Ingénieur full stack <span class="text-darken"> / </span> formateur</span> </h3>
+                </div>
+            </div>
+            <div class="w-1/6 h-full flex py-5 items-center justify-end mr-5">
+                <img class="max-h-full rounded-full" src="{{ asset('assets/images/moi.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="text-golden flex flex-col text-4xl items-center justify-center mt-12">
+            <span class="mt-4">Salut !</span>
+            <span class="text-darken mt-4">Je suis un Développeur freelance basé à Nice.</span>
+            <span class="mt-4"> Je suis passionné par les technologies du web et du mobile.</span>
+        </div>
+        <div class="mt-12 text-darken items-center justify-center text-center mb-6">
+            <h2>Je travaille sur :</h2>
+            <div class="flex flex-row items center justify-between mt-6">
+                {% for skill in skills %}
+                    <div class="flex">
+                        <img class="w-48 object-contain p-4" src="{{ asset('uploads/images/'~skill.image ) }}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mt-12 text-darken items-center justify-center text-center">
+            <h2>Quelques projets sur lesquels j'ai pu travailler</h2>
+            <div class="flex flex-row items center justify-around mt-6">
+                {% for project in projects %}
+                    <div class="flex">
+                        <img class="w-48 object-contain p-4" src="{{ asset('uploads/images/'~project.image ) }}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
