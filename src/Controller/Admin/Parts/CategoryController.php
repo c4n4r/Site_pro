@@ -59,8 +59,19 @@ class CategoryController extends AbstractController
     }
 
 
+    /**
+     * @Route("/admin/category/delete/{id}", name="admin_category_delete")
+     */
+    public function adminCategoryDeleteAction(Request $request, $id) {
+        $category = $this->categoryRepository->find($id);
+        $this->getDoctrine()->getManager()->remove($category);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('admin_home');
+    }
+
+
     public function categoriesTablesAction() {
         $categories = $this->categoryRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers'=>['id', 'name'], 'rows' => $categories, "update" => 'admin_category_update']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers'=>['id', 'name'], 'rows' => $categories, "update" => 'admin_category_update',  'delete'=>'admin_skill_delete']);
     }
 }

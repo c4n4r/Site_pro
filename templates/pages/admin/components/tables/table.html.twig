@@ -7,6 +7,9 @@
         {% if update %}
             <td class="w-full border-b border-golden rounded-top">Action</td>
         {% endif %}
+        {% if update %}
+            <td class="w-full border-b border-golden rounded-top">Action</td>
+        {% endif %}
     </tr>
 {% endblock %}
 {% block rows %}
@@ -20,6 +23,11 @@
             {% if update %}
                 <td class="w-full">
                     <a class="text-sm text-golden hover:font-extrabold" href="{{ path(update, {'id' : col.id}) }}"> Update </a>
+                </td>
+            {% endif %}
+            {% if delete %}
+                <td class="w-full">
+                    <a class="text-sm text-red-700 hover:font-extrabold" href="{{ path(delete, {'id' : col.id}) }}"> Delete </a>
                 </td>
             {% endif %}
         </tr>

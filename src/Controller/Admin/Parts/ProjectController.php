@@ -71,10 +71,19 @@ class ProjectController extends AbstractController
         return $this->render('pages/admin/projects/project_add.html.twig', ['projectForm'=>$projectForm->createView()]);
     }
 
+    /**
+     * @Route("/admin/project/delete/{id}", name="admin_project_delete")
+     */
+    public function adminCategoryDeleteAction(Request $request, $id) {
+        $project = $this->projectRepository->find($id);
+        $this->getDoctrine()->getManager()->remove($project);;
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('admin_home');
+    }
 
 
     public function projectsTablesAction(){
         $projects = $this->projectRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $projects, 'update' => 'admin_project_update']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $projects, 'update' => 'admin_project_update',  'delete'=>'admin_skill_delete']);
     }
 }

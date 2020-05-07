@@ -71,10 +71,18 @@ class TechnoController extends AbstractController
 
     }
 
-
+    /**
+     * @Route("/admin/techno/delete/{id}", name="admin_techno_delete")
+     */
+    public function adminTechnoDeleteAction(Request $request, $id) {
+        $techno = $this->technoRepository->find($id);
+        $this->getDoctrine()->getManager()->remove($techno);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('admin_home');
+    }
 
     public function technosTablesAction(){
         $technos = $this->technoRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $technos, 'update' => 'admin_techno_update']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $technos, 'update' => 'admin_techno_update',  'delete'=>'admin_skill_delete']);
     }
 }

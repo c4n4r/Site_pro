@@ -73,8 +73,18 @@ class SkillController extends AbstractController
         return $this->render('pages/admin/skills/skill_add.html.twig', ['skillForm'=>$skillForm->createView()]);
     }
 
+    /**
+     * @Route("/admin/skill/delete/{id}", name="admin_skill_delete")
+     */
+    public function adminSkillDeleteAction(Request $request, $id) {
+        $skill = $this->skillRepository->find($id);
+        $this->getDoctrine()->getManager()->remove($skill);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('admin_home');
+    }
+
     public function skillsTablesAction(){
         $skills = $this->skillRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $skills, 'update' => 'admin_skill_update']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $skills, 'update' => 'admin_skill_update', 'delete'=>'admin_skill_delete']);
     }
 }
