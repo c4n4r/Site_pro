@@ -16,8 +16,7 @@ class FormsManager
                 $path,
                 $newFilename
             );
-        } catch (FileException $e) {
-        }
+        } catch (FileException $e) {}
         return $newFilename;
     }
 }

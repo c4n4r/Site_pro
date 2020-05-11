@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,8 +13,9 @@ class ApiController extends AbstractController
      */
     public function apiPreviewImage($entity, $id)
     {
-        $class = "App\\Entity\\".$entity;
+        $class  = "App\\Entity\\".$entity;
         $found = $this->getDoctrine()->getRepository($class)->find($id);
-        return $this->json(['code'=>200, 'body' => ['message' => 'image data', 'data' => $found->getImage()]]);
+        if($found) return $this->json(['code'=>200, 'body' => ['message' => 'image data', 'data' => $found->getImage()]]);
+        return $this->json(['code'=>404, 'body'=>['message'=>'entity not found for id : '.$id]]);
     }
 }

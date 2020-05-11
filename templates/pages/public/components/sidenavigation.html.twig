@@ -1,0 +1,29 @@
+<div class="w-full bg-dark flex flex-col">
+    <div class="h-64 flex flex-col items-center justify-center p-10 mt-4">
+        <a class="max-h-full "  href="{{ path('home') }}"><img class="rounded-full shadow h-48 hover:shadow-xl" src="{{ asset('assets/images/moi.jpg') }}" alt=""></a>
+    </div>
+    <div class="px-12 mb-5 justify-center ">
+        <img class="mt-5 w-full" src="{{ asset('assets/composants/Line.svg') }}" alt="">
+    </div>
+    <div class="h-full flex flex-col items-center text-light mt-5">
+        <h4 class="hover:text-golden cursor-pointer">A propos</h4>
+        <div class="w-32 mt-2">
+            <img class="w-full" src="{{ asset('assets/composants/Line.svg') }}" alt="">
+        </div>
+        <h4 class="hover:text-golden cursor-pointer mt-6">Projets</h4>
+        <div class="w-32 mt-2">
+            <img class="w-full" src="{{ asset('assets/composants/Line.svg') }}" alt="">
+        </div>
+        <h4 class="hover:text-golden cursor-pointer mt-6"><a href="{{ path('skills') }}">Mes compétences</a></h4>
+        <div class="w-32 mt-2">
+            <img class="w-full" src="{{ asset('assets/composants/Line.svg') }}" alt="">
+        </div>
+
+    </div>
+    <div class="text-light text-center flex flex-col justify-end items-center px-12 py-5">
+        <img class="mt-5 w-full" src="{{ asset('assets/composants/Line.svg') }}" alt="">
+        <div class="mt-2 w-2/3">
+            <p>Made by <span class="text-golden">myself</span> with <span class="text-golden">Syfmony</span></p>
+        </div>
+    </div>
+</div>

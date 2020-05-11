@@ -1,4 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -25,6 +26,10 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('custom', './assets/js/custom.js')
+    .addEntry('skillsApp', './assets/js/skills-app/App.tsx')
+    .addPlugin(new CopyWebpackPlugin([
+        { from: './assets/fonts', to: 'fonts' }
+    ]))
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -65,8 +70,8 @@ Encore
     })
 
     // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
+    .enableTypeScriptLoader()
+    .enableReactPreset()
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())

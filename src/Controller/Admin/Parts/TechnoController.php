@@ -36,8 +36,10 @@ class TechnoController extends AbstractController
             $techno = $technoForm->getData();
             $file = $technoForm->get('image')->getData();
             if($file) {
+
                 $newFilename = FormsManager::handleFileUpload($file, $this->getParameter('uploads'));
                 $techno->setImage($newFilename);
+
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($techno);
                 $manager->flush();

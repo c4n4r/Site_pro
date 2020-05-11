@@ -4,33 +4,44 @@
     <h2 class="text-dark mb-5">nouvelle techno</h2>
 
     {{ form_start(technoForm) }}
-    <div class="flex w-1/5 flex-col">
-        <div class="flex justify-between">
-            {{ form_label(technoForm.name, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
-            {{ form_widget(technoForm.name , { 'attr': { 'class' : 'bg-light rounded shadow'}}) }}
-        </div>
+    <div class="flex flex-row">
+        <div class="flex w-2/5 flex-col">
+            <div class="flex justify-between">
+                {{ form_label(technoForm.name, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
+                {{ form_widget(technoForm.name , { 'attr': { 'class' : 'bg-light rounded shadow'}}) }}
+            </div>
 
-        <div class="flex justify-between my-5">
-            {{ form_label(technoForm.category, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
-            {{ form_widget(technoForm.category , { 'attr': { 'class' : 'bg-light rounded shadow'}}) }}
-        </div>
+            <div class="flex justify-between my-5">
+                {{ form_label(technoForm.category, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
+                {{ form_widget(technoForm.category , { 'attr': { 'class' : 'bg-light rounded shadow'}}) }}
+            </div>
 
-        <div class="flex justify-between items-center my-2">
-            {{ form_label(technoForm.image, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
-            <div>
-                <div class="flex w-full items-center justify-center bg-grey-lighter">
-                    <label class="flex w-full flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-                        <span class="text-base text-golden leading-normal">Select a file</span>
-                        {{ form_widget(technoForm.image , { 'attr': { 'class' : 'hidden'}}) }}
-                    </label>
+            <div class="flex justify-between items-center my-2">
+                {{ form_label(technoForm.image, null,  {'label_attr' : {'class' : 'text-golden'}}) }}
+                <div>
+                    <div class="flex w-full items-center justify-center bg-grey-lighter">
+                        <label class="flex w-full flex-col items-center px-4 py-2 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
+                            <span class="text-base text-golden leading-normal">Select a file</span>
+                            {{ form_widget(technoForm.image , { 'attr': { 'class' : 'hidden image-input' }}) }}
+                        </label>
+                    </div>
                 </div>
             </div>
+            <div class="flex mt-6">
+                {{ form_widget(technoForm.save, {'attr': {'class' : 'button button-dark' }}) }}
+            </div>
         </div>
-    </div>
-    <div class="flex mt-6">
-        {{ form_widget(technoForm.save, {'attr': {'class' : 'button button-dark' }}) }}
+        <div class="flex ml-6 w-48 h-48 rounded-lg border items-center justify-center">
+            <span name="no-img-span" class="text-golden">No Image</span>
+            <img class="rounded" src="" id="preview" alt="">
+        </div>
     </div>
 
     {{ form_end(technoForm) }}
 
+{% endblock %}
+
+
+{% block customJS %}
+    {{ encore_entry_script_tags('custom') }}
 {% endblock %}

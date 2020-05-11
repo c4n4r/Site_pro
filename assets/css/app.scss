@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwind-bases.scss";
+
+
+@font-face {
+  font-family: Montaga;
+  src: url('/build/fonts/Montaga-Regular.ttf ') format("truetype");
+}
+
+
+
+@-webkit-keyframes image_blur {
+  0% { -webkit-filter: blur(0px);}
+  50% { -webkit-filter: blur(2px);}
+  100% { -webkit-filter: blur(0px);}
+}
+
+#logo-image:hover{
+  -webkit-animation: image_blur 2s;
+}
+
+
