@@ -2,12 +2,22 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TechnoRepository")
+ * @ApiResource(
+ *     collectionOperations={"get"},
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"techno:get"}},
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"category":"exact"})
  */
 class Techno
 {
@@ -15,26 +25,31 @@ class Techno
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"category:get", "techno:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"category:get", "techno:get"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"category:get", "techno:get"})
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="Technos")
+     * @Groups({"techno:get"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Skill", mappedBy="techno")
+     * @Groups({"techno:get"})
      */
     private $skills;
 
