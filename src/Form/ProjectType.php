@@ -19,6 +19,7 @@ class ProjectType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('image', FileType::class, ['mapped'=>false, 'required'=>false])
+            ->add('screenshots', FileType::class, ['mapped'=>false, 'required'=>false, 'multiple'=>true, 'attr' => ['multiple'=>true]])
             ->add('skills', EntityType::class, ['class'=>Skill::class, 'multiple' => true, 'expanded' => true, 'choice_label'=>'name'])
             ->add('save', SubmitType::class)
         ;

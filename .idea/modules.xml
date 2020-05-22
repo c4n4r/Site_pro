@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/Downloads/EVALUATION POO VTC JULIEN_HAMMER/.idea/EVALUATION POO VTC JULIEN_HAMMER.iml" filepath="$USER_HOME$/Downloads/EVALUATION POO VTC JULIEN_HAMMER/.idea/EVALUATION POO VTC JULIEN_HAMMER.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/site_pro.iml" filepath="$PROJECT_DIR$/.idea/site_pro.iml" />
-      <module fileurl="file://$USER_HOME$/Downloads/test 2/betim/symfony-simple-docker-stack/.idea/symfony-simple-docker-stack.iml" filepath="$USER_HOME$/Downloads/test 2/betim/symfony-simple-docker-stack/.idea/symfony-simple-docker-stack.iml" />
     </modules>
   </component>
 </project>

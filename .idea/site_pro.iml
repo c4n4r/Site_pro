@@ -124,7 +124,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="symfony-simple-docker-stack" />
-    <orderEntry type="module" module-name="EVALUATION POO VTC JULIEN_HAMMER" />
   </component>
 </module>

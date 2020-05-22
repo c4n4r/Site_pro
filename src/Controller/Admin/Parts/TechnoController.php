@@ -84,6 +84,6 @@ class TechnoController extends AbstractController
 
     public function technosTablesAction(){
         $technos = $this->technoRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $technos, 'update' => 'admin_techno_update',  'delete'=>'admin_skill_delete']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $technos, 'update' => 'admin_techno_update',  'delete'=>'admin_techno_delete']);
     }
 }

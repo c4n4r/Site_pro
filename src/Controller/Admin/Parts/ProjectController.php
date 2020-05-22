@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Parts;
 
 
 use App\Entity\Project;
+use App\Entity\Screenshot;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use App\Service\FormsManager;
@@ -37,6 +38,13 @@ class ProjectController extends AbstractController
             if($file){
                 $newFileName = FormsManager::handleFileUpload($file, $this->getParameter('uploads'));
                 $project->setImage($newFileName);
+
+                foreach ($projectForm->get('screenshots')->getData() as $screen){
+                    $screenFileName = FormsManager::handleFileUpload($screen, $this->getParameter('uploads'));
+                    $screenshot = new Screenshot();
+                    $screenshot->setPath($screenFileName)->setProject($project);
+                    $this->getDoctrine()->getManager()->persist($screenshot);
+                }
             }
             $this->getDoctrine()->getManager()->persist($project);
             $this->getDoctrine()->getManager()->flush();
@@ -84,6 +92,6 @@ class ProjectController extends AbstractController
 
     public function projectsTablesAction(){
         $projects = $this->projectRepository->findAll();
-        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $projects, 'update' => 'admin_project_update',  'delete'=>'admin_skill_delete']);
+        return $this->render('pages/admin/components/tables/table.html.twig', ['headers' => ['id', 'name'], 'rows' => $projects, 'update' => 'admin_project_update',  'delete'=>'admin_project_delete']);
     }
 }

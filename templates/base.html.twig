@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
 </head>
-<body class="h-screen flex" style="font-family: Montaga">
+<body class="flex h-full overflow-hidden" style="font-family: Montaga">
 <div class="w-1/6 flex h-full">
-    {{ render(controller(
-        'App\\Controller\\PublicController::renderNavbar'))
-    }}
+    {{ render(controller('App\\Controller\\PublicController::renderNavbar')) }}
 </div>
-<div class="w-5/6 flex h-screen bg-darken">
+<div class="w-5/6 flex h-full bg-darken">
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}{% endblock %}
