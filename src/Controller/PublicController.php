@@ -40,17 +40,19 @@ class PublicController extends AbstractController
     }
 
     /**
-     * @Route("/skills/{category}/{techno}", name="skills", defaults={"category"=null, "techno"=null})
+     * @Route("/skills", name="skills")
      */
-    public function skillsAction(Request $request, $category, $techno){
+    public function skillsAction(Request $request){
 
-        $skills = null;
+        return $this->render('pages/public/skills.html.twig', []);
 
-        if (!$category){
-            $skills = $this->skillRepository->findAll();
-        }
+    }
 
-        return $this->render('pages/public/skills.html.twig', ["skills"=>$skills]);
+    /**
+     * @Route("/projects", name="projects")
+     */
+    public function projectsAction(Request $request){
+        return $this->render('pages/public/projects.html.twig');
 
     }
 

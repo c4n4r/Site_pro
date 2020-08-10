@@ -27,6 +27,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('custom', './assets/js/custom.js')
     .addEntry('skillsApp', './assets/js/skills-app/App.tsx')
+    .addEntry('projectsApp', './assets/js/projects-app/App.tsx')
     .addPlugin(new CopyWebpackPlugin([
         { from: './assets/fonts', to: 'fonts' }
     ]))

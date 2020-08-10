@@ -25,19 +25,19 @@ class Techno
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"category:get", "techno:get"})
+     * @Groups({"category:get", "techno:get", "project:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"category:get", "techno:get"})
+     * @Groups({"category:get", "techno:get", "project:get"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"category:get", "techno:get"})
+     * @Groups({"category:get", "techno:get", "project:get"})
      */
     private $image;
 

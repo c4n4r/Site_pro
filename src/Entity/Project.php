@@ -46,6 +46,7 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="projects")
+     * @Groups({"project:get"})
      */
     private $skills;
 

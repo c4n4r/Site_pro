@@ -27,25 +27,25 @@ class Skill
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"techno:get","skill:get"})
+     * @Groups({"techno:get","skill:get", "project:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"techno:get", "skill:get"})
+     * @Groups({"techno:get", "skill:get", "project:get"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"techno:get", "skill:get"})
+     * @Groups({"techno:get", "skill:get", "project:get"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"techno:get", "skill:get"})
+     * @Groups({"techno:get", "skill:get", "project:get"})
      */
     private $image;
 
@@ -57,7 +57,7 @@ class Skill
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Techno", inversedBy="skills")
-     * @Groups({"skill:get"})
+     * @Groups({"skill:get", "project:get"})
      */
     private $techno;
 
