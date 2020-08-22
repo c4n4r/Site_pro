@@ -21,8 +21,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Build-webpack-encore
       run: |
-        composer install,
-        yarn,
-        yarn encore production,
-        git remote add scalingo git@ssh.osc-fr1.scalingo.com:sitepro-prod.git,
+        composer install
+        yarn
+        yarn encore production
+        git remote add scalingo git@ssh.osc-fr1.scalingo.com:sitepro-prod.git
         git push master
