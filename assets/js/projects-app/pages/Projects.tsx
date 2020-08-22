@@ -1,8 +1,6 @@
-import axios from 'Axios'
-import Category from "../models/Category";
+import axios from 'axios'
 import * as React from "react";
 import {Component} from "react";
-import Techno from "../models/Techno";
 import Skill from "../models/Skill";
 import Project from "../models/Project";
 import {ProjectCard} from "../components/Project-card";

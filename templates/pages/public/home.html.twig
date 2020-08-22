@@ -5,8 +5,8 @@
         <img  class="w-4/6" src="{{ asset('assets/composants/shapes.svg') }}" alt="">
         <div class="flex-row flex justify-center mt-24">
             {% for skill in skills %}
-                <div class="bg-light h-24 rounded-full mx-4 p-1 block items-center justify-center">
-                    <img class="object-fill h-full rounded-full z-10 mt-0" src="{{ asset('uploads/images/'~skill.image) }}" alt="">
+                <div class="bg-white h-24 rounded-full mx-4 p-1 block items-center justify-center">
+                    <img class="object-cover h-full w-24 rounded-full z-10 mt-0" src="{{ asset('uploads/images/'~skill.image) }}" alt="">
                 </div>
             {% endfor %}
         </div>
