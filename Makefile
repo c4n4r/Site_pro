@@ -18,5 +18,5 @@ prepare-prod:
 	composer install \
     && yarn \
     && yarn encore production \
-    && php bin/console doctrine:migrations:migrate \
-    && php bin/console doctrine:fitures:load
+    && yes | php bin/console doctrine:migrations:migrate \
+    && yes | php bin/console doctrine:fixtures:load

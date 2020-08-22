@@ -1,1 +1,3 @@
+#!/bin/bash
+
 postdeploy: make prepare-prod
