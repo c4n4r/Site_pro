@@ -65,9 +65,7 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
-        "build": "webpack -p --config ./resources/webpack/webpack.config.js --display-error-details",
-        "watch": "webpack -d --watch --config ./resources/webpack/webpack.config.js --display-error-details",
-        "heroku-postbuild": "webpack -p --config ./resources/webpack/webpack.config.js",
+        "heroku-postbuild": "make prepare-prod",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
