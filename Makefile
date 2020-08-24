@@ -15,5 +15,6 @@ dev:
 
 
 prepare-prod:
-    yes | php bin/console doctrine:migrations:migrate \
+	echo('build prod') \
+    && yes | php bin/console doctrine:migrations:migrate \
     && yes | php bin/console doctrine:fixtures:load
