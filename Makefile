@@ -15,6 +15,5 @@ dev:
 
 
 prepare-prod:
-	php bin/console doctrine:database:create \
-    && yes | php bin/console doctrine:migrations:migrate \
+    yes | php bin/console doctrine:migrations:migrate \
     && yes | php bin/console doctrine:fixtures:load
