@@ -24,6 +24,6 @@ services:
     image: adminer
     restart: on-failure
     ports:
-      - ${ADMINER_PORT}:8080
+      - 8081:8080
     networks:
       - symfony
