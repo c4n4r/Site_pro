@@ -65,6 +65,9 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "compile" : [
+            "make prepare-prod"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
