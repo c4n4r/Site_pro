@@ -15,8 +15,6 @@ dev:
 
 
 prepare-prod:
-	yarn \
-	&& echo('tralala') \
-	&& php bin/console doctrine:database:create \
+	php bin/console doctrine:database:create \
     && yes | php bin/console doctrine:migrations:migrate \
     && yes | php bin/console doctrine:fixtures:load
