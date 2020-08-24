@@ -66,7 +66,10 @@
     },
     "scripts": {
         "compile" : [
-            "make prepare-prod"
+            "yarn",
+            "yarn encore production",
+            "yes | php bin/console doctrine:migrations:migrate",
+            "yes | php bin/console doctrine:fixtures:load"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
