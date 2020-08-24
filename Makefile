@@ -11,7 +11,7 @@ db_setup:
 
 dev:
 	docker-compose up -d \
-	&& yes | symfony server:start
+	&& yes | symfony server:start -d
 
 
 prepare-prod:
