@@ -65,6 +65,9 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "compile": [
+            "make prepare-prod"
+        ],
         "heroku-postbuild": "make prepare-prod",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
