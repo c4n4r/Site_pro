@@ -1,2 +1,2 @@
 web: heroku-php-apache2 public/
-web: male prepare-prod
+web: make prepare-prod
